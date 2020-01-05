@@ -1,0 +1,28 @@
+<h1><%= t '.title' %></h1>
+
+<em><%= t '.description' %></em>
+
+<%= form_tag products_path, :method => 'get' do  %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<%= form_tag new_product_path, method: :get do %>
+  <%= select_tag :product_type_id, options_from_collection_for_select(ProductType.all, :id, :name) %>
+  <%= submit_tag "New Product", name: nil %>
+<% end %>
+
+
+<%= link_to "Advanced Search", new_search_path %>
+
+<div id="products">
+  <%= render @products %>
+</div>
+
+
+
+
+<%= will_paginate @products, previous_label: h("Previous"), next_label: h("Next") %>

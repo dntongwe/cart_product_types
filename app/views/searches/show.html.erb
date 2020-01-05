@@ -1,0 +1,9 @@
+<h1>Advanced Search Results </h1>
+
+<%= pluralize(@products.count, "hit")  %> found
+
+<%= render @products %>
+
+<br>
+
+<%= will_paginate @products, previous_label: h("Previous"), next_label: h("Next") %>

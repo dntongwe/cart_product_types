@@ -1,0 +1,8 @@
+
+<% title " Select a letter" %>
+
+<h1>Select a letter </h1>
+
+<% @letters.each do |letter| %>
+	<%= link_to letter.char, letter_path(letter) %>
+<% end %>

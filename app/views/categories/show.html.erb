@@ -1,0 +1,23 @@
+<% content_for :title, @category.name %>
+
+<h1><%= @category.name %></h1>
+<ul id="menu">
+  <% Category.roots.each do |category| %>
+    <li><%= link_to category.name, category, class: ("active" if @category.root == category) %></li>
+  <% end %>
+</ul>
+
+<div id="submenu">
+  <%= render 'submenu', categories: @category.root.descendants.arrange %>
+</div>
+
+<div id="breadcrumbs">
+  <% @category.ancestors.each do |category| %>
+    <%= link_to category.name, category %> &gt;
+  <% end %>
+</div>
+
+
+
+<%= simple_format @category.content %>
+

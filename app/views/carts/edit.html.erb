@@ -1,0 +1,21 @@
+<% title "Edit page" %>
+
+<h1>Editting Shopping Cart</h1>
+
+
+<% title "Cart" %>
+
+
+  <tr>
+    <td class="total price" colspan="4">
+      Total: <%= number_to_currency @cart.total_price %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <% if session[:last_product_page] %>
+    <%= link_to "Continue Shopping", session[:last_product_page] %> |
+  <% end %>
+  <%= link_to "Checkout" %>
+</p>

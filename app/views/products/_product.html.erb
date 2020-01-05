@@ -1,0 +1,19 @@
+    <div class="product">
+      <h2><%= link_to product.name, product %></h2>
+
+      <div class="details">
+       <%= Product.human_attribute_name(:price) %> :
+        <%= number_to_currency(product.price) %> |
+        <% if product.released_at? %>
+              Released on <%= product.released_at.strftime("%B %e, %Y") %>
+         <% else %>
+          Comming Soon
+         <% end %>
+      </div>
+    
+    <%= Product.human_attribute_name(:category) %>: <%=h product.category.name %>
+
+      <div class="actions">
+        <%= link_to "Add to Cart", cart_items_path(:product_id => product), :method => :post %>
+      </div>
+    </div>

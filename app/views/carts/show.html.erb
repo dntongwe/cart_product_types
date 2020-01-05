@@ -1,0 +1,35 @@
+<% title "Cart" %>
+
+<h1>Shopping Cart</h1>
+
+<table id="cart_items">
+  <tr>
+    <th>Product</th>
+    <th>Qty</th>
+    <th class="price">Unit Price</th>
+    <th class="price">Full Price</th>
+  </tr>
+  <% for cart_item in @cart.cart_items %>
+    <% if cart_item.product  %>
+    <tr class="<%= cycle :odd, :even %>">
+      <td><%=h cart_item.product.name %></td>
+      <td class="qty"><%= cart_item.quantity %></td>
+      <td class="price"><%= number_to_currency(cart_item.unit_price) %></td>
+      <td class="price"><%= number_to_currency(cart_item.full_price) %></td>
+    </tr>
+  <% end %>
+  <% end %>
+  <tr>
+    <td class="total price" colspan="4">
+      Total: <%= number_to_currency @cart.total_price %>
+    </td>
+  </tr>
+</table>
+
+
+
+<p>
+   <%= link_to "Continue Shopping", products_path %>
+  <%= link_to "Checkout", new_order_path %>
+</p>
+

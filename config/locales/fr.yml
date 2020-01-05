@@ -1,0 +1,14 @@
+fr:
+  products:
+    index:
+      title: "Nos Produits"
+      description: "Bienvenue au marche Mokollo. Acheter quelque chose."
+  activerecord:
+    attributes:
+      product:
+        price: "Prix"
+        category: "Categorie de Produit"
+  number:
+    currency:
+      format:
+        unit: XAF
